@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidature{% endblock %}
+
+{% block body %}
+    <h1>Candidature</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ application.id }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ application.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ application.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ application.email }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ application.creationDate ? application.creationDate|date('d/m/Y H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ application.comment|nl2br }}</td>
+            </tr>
+            <tr>
+                <th>Archive</th>
+                <td>
+                    <a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile')) }}">{{ application.archiveName }}</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a class="btn btn-outline-primary" href="{{ path('admin_application_index') }}">retour à la liste</a>
+    </div>
+    <div>
+        <a class="btn btn-outline-primary" href="{{ path('admin_application_edit', {'id': application.id}) }}">modifier</a>
+    </div>
+
+    {{ include('admin/application/_delete_form.html.twig') }}
+{% endblock %}

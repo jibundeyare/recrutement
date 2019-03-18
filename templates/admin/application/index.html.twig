@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des candidatures{% endblock %}
+
+{% block body %}
+    <h1>Liste des candidatures</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Commentaire</th>
+                <th>Archive</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application in applications %}
+            <tr>
+                <td>{{ application.id }}</td>
+                <td>{{ application.firstname }}</td>
+                <td>{{ application.lastname }}</td>
+                <td>{{ application.email }}</td>
+                <td>{{ application.creationDate ? application.creationDate|date('d/m/Y H:i:s') : '' }}</td>
+                <td>{{ application.comment|slice(1, 50)|nl2br }}</td>
+                <td><a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile')) }}">{{ application.archiveName }}</a></td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ path('admin_application_show', {'id': application.id}) }}">voir</a>
+                    <a class="btn btn-outline-primary" href="{{ path('admin_application_edit', {'id': application.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-primary" href="{{ path('admin_application_new') }}">Créer une nouvelle candidature</a>
+{% endblock %}

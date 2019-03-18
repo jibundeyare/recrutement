@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Consignes du test technique d’entrée à PopSchool Lens</h1>
+
+<h2>Généralité</h2>
+
+<p>Aucun savoir préalable n’est demandé, le test vise surtout à vous faire essayer un peu de code pour être certains que ça vous plaise.</p>
+
+<p>Vous devez suivre le cours OpenClassRooms <em>Apprenez à créer votre site web en HTML5 et CSS3</em> (<a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3">https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3</a>), réaliser les deux premiers chapitres et nous soumettre le résultat.</p>
+
+<p>Pour votre candidature, le fond de votre CV ne nous intéresse pas, ce qui nous intéresse c’est le code HTML/CSS que vous allez générer. Vous pouvez tout à fait inventer des diplômes ou des expériences professionnelles ou faire un CV fantaisiste (sportif, super-héros, personnage historique …)</p>
+
+<h2>S’inscrire à OpenClassRooms</h2>
+
+<p><a href="https://openclassrooms.com/fr/register">https://openclassrooms.com/fr/register</a></p>
+
+<p>L’inscription à OpenClassRooms est gratuite pour les demandeurs d’emploi. Vous devrez indiquer votre numéro de demandeur d’emploi. La demande se fait sur la page suivante après avoir créé votre compte OpenClassRooms : <a href="https://openclassrooms.com/fr/partners/pole-emploi/offers">https://openclassrooms.com/fr/partners/pole-emploi/offers</a>.</p>
+
+<h2>Détails du test technique</h2>
+
+<p>Nous vous demandons de nous transmettre via la page <a href="{{ absolute_url(path('application_new')) }}">{{ absolute_url(path('application_new')) }}</a> le résultat du TP du second chapitre du cours <em>Apprenez à créer votre site web avec HTML5 et CSS3</em> d’OpenClassRooms</p>
+
+<p>Voici les points auxquels vous devez être attentifs :</p>
+
+<ul>
+    <li>Vous devez nous transmettre votre dossier sous la forme d’un fichier <code>zip</code></li>
+    <li>Votre page HTML doit s’appeler <code>index.html</code></li>
+    <li>Votre feuille de style doit s’appeler <code>style.css</code></li>
+    <li>Votre page HTML doit contenir au moins une balise <code>h1</code> et une liste <code>ul</code> avec des <code>li</code></li>
+    <li>Votre feuille de style CSS doit contenir au moins une propriété <code>color</code> pour les balises de type <code>h1</code></li>
+</ul>
+
+<p>Voici les points qui nous feraient plaisir, mais qui sont facultatifs:</p>
+
+<ul>
+    <li>Rédigez votre CV en anglais</li>
+    <li>Ajoutez un maximum de code HTML et CSS</li>
+    <li>Utiliser des fonctions avancées de CSS3 ou des balises sémantiques HTML5</li>
+    <li>Ajouter un fichier <code>README.txt</code> avec votre code</li>
+    <li>Faire les chapitres 3 et 4 du cours d'OpenClassRooms</li>
+</ul>
+
+<p>Par contre, vous seriez éliminés si:</p>
+
+<ul>
+    <li>Vous utilisez du PHP ou du JavaScript (nous allons avoir plus de 200 candidatures, notre analyseur syntaxique ne contrôle que l’HTML et le CSS !)</li>
+    <li>Vos fichiers de respectent pas la nomenclature (<code>index.html</code> et <code>style.css</code>, là encore c’est une question d’analyseur syntaxique)</li>
+</ul>
+
+<h2>Contacts</h2>
+
+<p>Pour tout demande d'information d'ordre général (dates, dossier inscription, etc) : <a href="mailto:{{ generalContactEmail }}">{{ generalContactEmail }}</a></p>
+
+<p>Pour tout demande d'information d'ordre technique (code, test) : <a href="mailto:{{ technicalContactEmail }}">{{ technicalContactEmail }}</a></p>
+{% endblock %}

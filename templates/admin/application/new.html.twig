@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle candidature{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle candidature</h1>
+
+    {{ include('admin/application/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary" href="{{ path('admin_application_index') }}">retour à la liste</a>
+{% endblock %}

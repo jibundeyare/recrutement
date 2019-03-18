@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une candidature{% endblock %}
+
+{% block body %}
+    <h1>Modifier une candidature</h1>
+
+    {{ include('admin/application/_form.html.twig', {'button_label': 'Valider'}) }}
+
+    <a class="btn btn-outline-primary" href="{{ path('admin_application_index') }}">retour à la liste</a>
+
+    {{ include('admin/application/_delete_form.html.twig') }}
+{% endblock %}
