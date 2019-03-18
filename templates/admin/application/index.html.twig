@@ -26,7 +26,7 @@
                 <td>{{ application.lastname }}</td>
                 <td>{{ application.email }}</td>
                 <td>{{ application.creationDate ? application.creationDate|date('d/m/Y H:i:s') : '' }}</td>
-                <td>{{ application.comment|slice(1, 50)|nl2br }}</td>
+                <td>{{ application.comment|slice(0, 50)|nl2br }}</td>
                 <td><a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile')) }}">{{ application.archiveName }}</a></td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('admin_application_show', {'id': application.id}) }}">voir</a>
