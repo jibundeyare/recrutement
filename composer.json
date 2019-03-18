@@ -13,11 +13,13 @@
         "symfony/console": "^3.4",
         "symfony/css-selector": "^3.4",
         "symfony/debug-pack": "*",
+        "symfony/dotenv": "^3.4",
         "symfony/expression-language": "^3.4",
         "symfony/flex": "^1.0",
         "symfony/form": "^3.4",
         "symfony/framework-bundle": "^3.4",
         "symfony/lts": "^3",
+        "symfony/maker-bundle": "^1.0",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "*",
         "symfony/process": "^3.4",
@@ -32,8 +34,6 @@
         "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
-        "symfony/dotenv": "^3.4",
-        "symfony/maker-bundle": "^1.0",
         "symfony/phpunit-bridge": "^3.4",
         "symfony/profiler-pack": "*"
     },
