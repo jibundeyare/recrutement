@@ -24,7 +24,7 @@ class ApplicationType extends AbstractType
                 'label' => 'Commentaire',
             ])
             ->add('archiveFile', VichFileType::class, [
-                'label' => 'Archive (seuls les fichiers zip sont autorisés)',
+                'label' => 'Archive (seuls les fichiers zip sont autorisés, taille max : 5Mo)',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
