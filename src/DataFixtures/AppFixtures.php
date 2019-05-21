@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
         $this->adminEmail = $adminEmail;
         $this->adminPassword = $adminPassword;
     }
-    
+
     public function load(ObjectManager $manager)
     {
         // super admin

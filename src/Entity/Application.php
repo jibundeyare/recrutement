@@ -54,11 +54,11 @@ class Application
 
     /**
      * @Assert\File
-     * 
+     *
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
+     *
      * @Vich\UploadableField(mapping="archive", fileNameProperty="archiveName", mimeType="archiveMimeType", size="archiveSize")
-     * 
+     *
      * @var File
      */
     private $archiveFile;
@@ -81,7 +81,7 @@ class Application
      * @ORM\Column(type="integer")
      *
      * @var integer
-     */ 
+     */
     private $archiveSize;
 
     /**
@@ -103,7 +103,7 @@ class Application
 
     /**
      * Get the value of firstname
-     */ 
+     */
     public function getFirstname(): ?string
     {
         return $this->firstname;
@@ -113,7 +113,7 @@ class Application
      * Set the value of firstname
      *
      * @return  self
-     */ 
+     */
     public function setFirstname($firstname): self
     {
         $this->firstname = $firstname;
@@ -123,7 +123,7 @@ class Application
 
     /**
      * Get the value of lastname
-     */ 
+     */
     public function getLastname(): ?string
     {
         return $this->lastname;
@@ -133,7 +133,7 @@ class Application
      * Set the value of lastname
      *
      * @return  self
-     */ 
+     */
     public function setLastname($lastname): self
     {
         $this->lastname = $lastname;
@@ -218,7 +218,7 @@ class Application
      * Get the value of archiveMimeType
      *
      * @return  string
-     */ 
+     */
     public function getArchiveMimeType(): ?string
     {
         return $this->archiveMimeType;
@@ -230,7 +230,7 @@ class Application
      * @param  string  $archiveMimeType
      *
      * @return  self
-     */ 
+     */
     public function setArchiveMimeType(?string $archiveMimeType): self
     {
         $this->archiveMimeType = $archiveMimeType;
@@ -242,7 +242,7 @@ class Application
     {
         return $this->archiveSize;
     }
-    
+
     public function setArchiveSize(?int $archiveSize): self
     {
         $this->archiveSize = $archiveSize;

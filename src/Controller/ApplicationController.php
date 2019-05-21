@@ -41,7 +41,7 @@ class ApplicationController extends Controller
 
             // get application url
             $applicationUrl = $this->generateUrl('application_show', ['id' => $application->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
-            
+
             // send registration confirmation email
             $message = (new \Swift_Message('Pop School Lens - Merci pour votre candidature !'))
             ->setFrom($this->generalContactEmail)
