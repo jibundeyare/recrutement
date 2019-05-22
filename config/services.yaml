@@ -43,3 +43,6 @@ services:
         arguments:
             $generalContactEmail: '%env(GENERAL_CONTACT_EMAIL)%'
             $technicalContactEmail: '%env(TECHNICAL_CONTACT_EMAIL)%'
+
+    App\Service\ApplicationNamer:
+        public: true
