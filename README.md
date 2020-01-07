@@ -1,5 +1,15 @@
 # recrutement.popschool-lens.fr
 
+## Deploy
+
+Requirements:
+
+- [Deployer – A deployment tool for php](https://deployer.org/)
+
+To deploy:
+
+    dep deploy
+
 ## URLs
 
 - admin_application_index    GET        ANY      ANY    /admin/candidature/
