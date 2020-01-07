@@ -23,9 +23,25 @@ To deploy:
 - app_login                  ANY        ANY      ANY    /login
 - app_logout                 ANY        ANY      ANY    /logout
 
-## Emails
+## Texts
 
-See `.env.prod.local`.
+Main page :
+
+- `templates/main/index.html.twig`
+
+Application confirmation :
+
+- `templates/application/show.html.twig`
+- `templates/email/application_confirmation.html.twig`
+- `templates/email/application_confirmation.txt.twig`
+
+## Email addresses
+
+See `.env*` files.
+
+## Admin password
+
+See `.env*` files.
 
 ## Known issues
 
