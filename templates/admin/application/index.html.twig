@@ -12,9 +12,11 @@
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Email</th>
+                <th>Profile Codecademy</th>
                 <th>Date</th>
                 <th>Commentaire</th>
-                <th>Archive</th>
+                <th>CV</th>
+                <th>Site web factultatif</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,9 +27,15 @@
                 <td>{{ application.firstname }}</td>
                 <td>{{ application.lastname }}</td>
                 <td>{{ application.email }}</td>
+                <td>{{ application.codecademyProfile }}</td>
                 <td>{{ application.creationDate ? application.creationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>{{ application.comment|slice(0, 50)|nl2br }}</td>
                 <td><a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile')) }}">{{ application.archiveName }}</a></td>
+                <td>
+                    {% if application.archiveName2 %}
+                    <a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile2')) }}">{{ application.archiveName2 }}</a>
+                    {% endif %}
+                </td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('admin_application_show', {'id': application.id}) }}">voir</a>
                     <a class="btn btn-outline-primary" href="{{ path('admin_application_edit', {'id': application.id}) }}">modifier</a>

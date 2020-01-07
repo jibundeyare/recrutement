@@ -24,6 +24,10 @@
                 <td>{{ application.email }}</td>
             </tr>
             <tr>
+                <th>Profile Codecademy</th>
+                <td>{{ application.codecademyProfile }}</td>
+            </tr>
+            <tr>
                 <th>Date</th>
                 <td>{{ application.creationDate ? application.creationDate|date('d/m/Y H:i:s') : '' }}</td>
             </tr>
@@ -32,9 +36,17 @@
                 <td>{{ application.comment|nl2br }}</td>
             </tr>
             <tr>
-                <th>Archive</th>
+                <th>CV</th>
                 <td>
                     <a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile')) }}">{{ application.archiveName }}</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Site web factultatif</th>
+                <td>
+                    {% if application.archiveName2 %}
+                    <a class="btn btn-secondary" href="{{ absolute_url(vich_uploader_asset(application, 'archiveFile2')) }}">{{ application.archiveName2 }}</a>
+                    {% endif %}
                 </td>
             </tr>
         </tbody>
