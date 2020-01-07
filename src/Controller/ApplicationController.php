@@ -46,7 +46,7 @@ class ApplicationController extends Controller
             $message = (new \Swift_Message('Pop School Lens - Merci pour votre candidature !'))
             ->setFrom($this->generalContactEmail)
             ->setTo($application->getEmail())
-            ->setReplyTo($this->technicalContactEmail)
+            ->setReplyTo($this->generalContactEmail)
             ->setBody(
                 $this->renderView('email/application_confirmation.html.twig', [
                     'applicationUrl' => $applicationUrl,
