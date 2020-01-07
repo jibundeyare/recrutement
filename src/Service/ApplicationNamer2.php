@@ -9,9 +9,9 @@ use Vich\UploaderBundle\Naming\NamerInterface;
 use Vich\UploaderBundle\Util\Transliterator;
 
 /**
- * ApplicationNamer
+ * ApplicationNamer2
  */
-class ApplicationNamer implements NamerInterface, ConfigurableInterface
+class ApplicationNamer2 implements NamerInterface, ConfigurableInterface
 {
     /**
      * @var bool
@@ -40,7 +40,7 @@ class ApplicationNamer implements NamerInterface, ConfigurableInterface
             $firstname = Transliterator::transliterate($firstname);
             $lastname = Transliterator::transliterate($lastname);
         }
-        return $firstname.'_'.$lastname.'_'.\uniqid().'_cv_'.$name;
+        return $firstname.'_'.$lastname.'_'.\uniqid().'_website_'.$name;
     }
 }
 

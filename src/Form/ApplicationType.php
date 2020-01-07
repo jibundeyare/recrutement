@@ -20,16 +20,28 @@ class ApplicationType extends AbstractType
                 'label' => 'Nom',
             ])
             ->add('email')
+            ->add('codecademyProfile', null, [
+                'label' => 'Profile Codecademy',
+            ])
             ->add('comment', null, [
                 'label' => 'Commentaire',
             ])
             ->add('archiveFile', VichFileType::class, [
-                'label' => 'Archive (seuls les fichiers zip sont autorisés, taille max : 5Mo)',
+                'label' => 'CV (fichier zip, 5Mo max)',
                 'required' => false,
                 'allow_delete' => true,
                 'download_uri' => true,
                 'download_label' => function (Application $application) {
                     return $application->getArchiveName();
+                },
+            ])
+            ->add('archiveFile2', VichFileType::class, [
+                'label' => 'Site web facultatif (fichier zip, 5Mo max)',
+                'required' => false,
+                'allow_delete' => true,
+                'download_uri' => true,
+                'download_label' => function (Application $application) {
+                    return $application->getArchiveName2();
                 },
             ])
         ;

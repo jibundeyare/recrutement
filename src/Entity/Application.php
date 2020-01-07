@@ -42,6 +42,15 @@ class Application
     private $email;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Url(
+     *    protocols = {"http", "https"}
+     * )
+     * @ORM\Column(type="string", length=180)
+     */
+    private $codecademyProfile;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $creationDate;
@@ -90,6 +99,45 @@ class Application
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @Assert\File
+     *
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="archive2", fileNameProperty="archiveName2", mimeType="archiveMimeType2", size="archiveSize2")
+     *
+     * @var File
+     */
+    private $archiveFile2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $archiveName2;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $archiveMimeType2;
+
+    /**
+     * @ORM\Column(type="integer")
+     *
+     * @var integer
+     */
+    private $archiveSize2;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt2;
 
     public function __construct()
     {
@@ -149,6 +197,18 @@ class Application
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getCodecademyProfile(): ?string
+    {
+        return $this->codecademyProfile;
+    }
+
+    public function setCodecademyProfile(string $codecademyProfile): self
+    {
+        $this->codecademyProfile = $codecademyProfile;
 
         return $this;
     }
@@ -250,12 +310,88 @@ class Application
         return $this;
     }
 
+    public function getArchiveFile2(): ?File
+    {
+        return $this->archiveFile2;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $archiveFile2
+     */
+    public function setArchiveFile2(?File $archiveFile2 = null): void
+    {
+        $this->archiveFile2 = $archiveFile2;
+
+        if (null !== $archiveFile2) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt2 = new \DateTimeImmutable();
+        }
+    }
+
+    public function getArchiveName2(): ?string
+    {
+        return $this->archiveName2;
+    }
+
+    public function setArchiveName2(?string $archiveName2): self
+    {
+        $this->archiveName2 = $archiveName2;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of archiveMimeType2
+     *
+     * @return  string
+     */
+    public function getArchiveMimeType2(): ?string
+    {
+        return $this->archiveMimeType2;
+    }
+
+    /**
+     * Set the value of archiveMimeType2
+     *
+     * @param  string  $archiveMimeType2
+     *
+     * @return  self
+     */
+    public function setArchiveMimeType2(?string $archiveMimeType2): self
+    {
+        $this->archiveMimeType2 = $archiveMimeType2;
+
+        return $this;
+    }
+
+    public function getArchiveSize2(): ?int
+    {
+        return $this->archiveSize2;
+    }
+
+    public function setArchiveSize2(?int $archiveSize2): self
+    {
+        $this->archiveSize2 = $archiveSize2;
+
+        return $this;
+    }
+
     /**
      * @Assert\Callback
      */
     public function validate(ExecutionContextInterface $context, $payload)
     {
-        if ($this->archiveFile == null && $this->archiveMimeType == 'application/zip') {
+        if (
+            ($this->archiveFile == null && $this->archiveMimeType == 'application/zip')
+            && ($this->archiveFile2 == null && $this->archiveMimeType2 == 'application/zip')
+        ) {
             return;
         }
 
@@ -275,6 +411,26 @@ class Application
             $context
                 ->buildViolation('Mauvais type de fichier. Seuls les fichiers zip sont autorisés.')
                 ->atPath('archiveFile')
+                ->addViolation()
+            ;
+        }
+
+        if ($this->archiveFile2 == null && $this->archiveMimeType2 ==  null) {
+            $context
+                ->buildViolation('Veuillez choisir un fichier zip.')
+                ->atPath('archiveFile2')
+                ->addViolation()
+            ;
+
+            return;
+        }
+
+        if (!in_array($this->archiveFile2->getMimeType2(), [
+            'application/zip',
+        ])) {
+            $context
+                ->buildViolation('Mauvais type de fichier. Seuls les fichiers zip sont autorisés.')
+                ->atPath('archiveFile2')
                 ->addViolation()
             ;
         }
