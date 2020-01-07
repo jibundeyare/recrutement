@@ -46,3 +46,6 @@ services:
 
     App\Service\ApplicationNamer:
         public: true
+
+    App\Service\ApplicationNamer2:
+        public: true

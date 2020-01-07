@@ -425,7 +425,7 @@ class Application
             return;
         }
 
-        if (!in_array($this->archiveFile2->getMimeType2(), [
+        if (!in_array($this->archiveFile2->getMimeType(), [
             'application/zip',
         ])) {
             $context
