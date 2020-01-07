@@ -112,28 +112,28 @@ class Application
     private $archiveFile2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $archiveName2;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $archiveMimeType2;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var integer
      */
     private $archiveSize2;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
      */
@@ -415,17 +415,7 @@ class Application
             ;
         }
 
-        if ($this->archiveFile2 == null && $this->archiveMimeType2 ==  null) {
-            $context
-                ->buildViolation('Veuillez choisir un fichier zip.')
-                ->atPath('archiveFile2')
-                ->addViolation()
-            ;
-
-            return;
-        }
-
-        if (!in_array($this->archiveFile2->getMimeType(), [
+        if (($this->archiveFile2 !== null && $this->archiveMimeType2 !==  null) && !in_array($this->archiveFile2->getMimeType(), [
             'application/zip',
         ])) {
             $context
