@@ -47,7 +47,7 @@ See `.env*` files.
 
 ### Rename uploaded file with entity id
 
-This is impossible unless additional preprocessing is done after persisting the object.
+This is impossible unless additional postprocessing is done after persisting the object.
 The reason is that the file name is computed before the object is persisted, so the id is not yet available.
 For more details, see: [symfony - VichUploaderBundle: How to get related entity ID in DirectoryNamer? - Stack Overflow](https://stackoverflow.com/questions/34002643/vichuploaderbundle-how-to-get-related-entity-id-in-directorynamer).
 
